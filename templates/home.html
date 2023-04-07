@@ -24,19 +24,27 @@
         </style>
     </head>
     <body>
+        {% include 'nav.html' %}
         <div class="container">
             <h1 class="text-center mt-2 mb-4">Jovian Careers</h1>
         </div>
         <div>
             <img id="banner" class="img-fluid" id="banner" src="{{ url_for('static', filename='assets/banner.jpg') }}" >
         </div>
-        <div class="container">
+        <div class="container mt-3 mb-2">
             <h2 class="text-center mt-2 mb-2">
                 About Jovian
             </h2>
-            <p class="lead">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat id porta nibh venenatis. Vulputate mi sit amet mauris commodo quis imperdiet. Lacus sed turpis tincidunt id aliquet risus feugiat. Lectus urna duis convallis convallis tellus id. Mi eget mauris pharetra et ultrices. Risus quis varius quam quisque id diam vel quam elementum. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Tellus id interdum velit laoreet id donec ultrices. Pharetra et ultrices neque ornare aenean euismod elementum nisi quis. Sollicitudin ac orci phasellus egestas tellus rutrum. Est lorem ipsum dolor sit amet. Elementum sagittis vitae et leo duis ut.
-            </p>
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="lead ">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat id porta nibh venenatis. Vulputate mi sit amet mauris commodo quis imperdiet. Lacus sed turpis tincidunt id aliquet risus feugiat. Lectus urna duis convallis convallis tellus id. Mi eget mauris pharetra et ultrices. Risus quis varius quam quisque id diam vel quam elementum. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Tellus id interdum velit laoreet id donec ultrices. Pharetra et ultrices neque ornare aenean euismod elementum nisi quis. Sollicitudin ac orci phasellus egestas tellus rutrum. Est lorem ipsum dolor sit amet. Elementum sagittis vitae et leo duis ut.
+                    </p>
+                </div>
+                <div class="d-none d-md-block col-md-4">
+                    <img class="img-fluid" src="{{ url_for('static', filename='assets/people-working.jpg') }}"/>
+                </div>
+            </div>
             <h2 class="text-center mt-2 mb-2">Job Openings</h2>
             <div>
                 <p>
@@ -48,7 +56,7 @@
             <div class="text-center">
                 <button class="btn btn-primary btn-lg">Contact Us</button>
             </div>
-            <p>Copyright 2022</p>
         </div>
+        {% include 'footer.html' %}
     </body>
 </html>
