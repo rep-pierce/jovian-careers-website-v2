@@ -39,21 +39,10 @@
             </p>
             <h2 class="text-center mt-2 mb-2">Job Openings</h2>
             <div>
-                <h3>Front-end Engineer</h3>
                 <p>
-                    Job information
-                </p>
-            </div>
-            <div>
-                <h3>Back-end Engineer</h3>
-                <p>
-                    Job information
-                </p>
-            </div>
-            <div>
-                <h3>Full-stack Engineer</h3>
-                <p>
-                    Job information
+                    {% for job in jobs %}
+                        {% include 'jobitem.html' %}
+                    {% endfor %}
                 </p>
             </div>
             <div class="text-center">
