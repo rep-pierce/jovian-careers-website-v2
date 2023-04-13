@@ -1,0 +1,11 @@
+<div class="question">
+    <h2>{{ question.question }}</h2>
+    <div class="answers">
+        {% for answer in question.answers %}
+            <div class="answer">
+                <input type="radio" name="question-{{ question.id }}" id="answer-{{ loop.index }}" data-plant-values="{{ answer|remove_answer_key }}">
+                <label for="answer-{{ loop.index }}">{{ answer.answer }}</label>
+            </div>
+        {% endfor %}
+    </div>
+</div>
