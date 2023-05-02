@@ -1,13 +1,10 @@
 from sqlalchemy import create_engine, text
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-username = os.getenv('USERNAME')
-password = os.getenv('PASSWORD')
-host = os.getenv('HOST')
-database = os.getenv('DATABASE')
+username = os.environ.get('USERNAME')
+password = os.environ.get('PASSWORD')
+host = os.environ.get('HOST')
+database = os.environ.get('DATABASE')
 
 
 
