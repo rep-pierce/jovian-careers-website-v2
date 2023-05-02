@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Application Submitted</title>
+        {% include 'bootstrap.html' %}
+    </head>
+    <body>
+        {% include 'nav.html' %}
+        <h1 class="text-center mt-2 mb-4">Application Submitted for <b>{{job['title']}}</b></h1>
+        <div>
+            <img id="banner" class="img-fluid" id="banner" src="{{ url_for('static', filename='assets/banner.jpg') }}" >
+        </div>
+        <div class="container">
+            <h4 class="mt-4">Full Name</h4>
+            <div>{{application['full_name']}}</div>
+    
+            <h4 class="mt-2">Email</h4>
+            <div>{{application['email']}}</div>
+    
+            <h4 class="mt-2">LinkedIn URL</h4>
+            <div>{{application['linkedin_url']}}</div>
+    
+            <h4 class="mt-2">Education</h4>
+            <div>{{application['education']}}</div>
+    
+            <h4 class="mt-2">Work Experience</h4>
+            <div>{{application['work_experience']}}</div>
+    
+            <h4 class="mt-2">Resume URL</h4>
+            <div>{{application['resume_url']}}</div>
+        </div>
+
+        {% include 'footer.html' %}
+    </body>
+</html>
