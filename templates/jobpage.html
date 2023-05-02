@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{job.title}} - YJB Careers</title>
+        {% include 'bootstrap.html' %}
+    </head>
+    <body>
+        {% include 'nav.html' %}
+        <div>
+            <img id="banner" class="img-fluid" id="banner" src="{{ url_for('static', filename='assets/banner.jpg') }}" >
+        </div>
+        <div class="container">
+            <h1 class="text-center mt-2 mb-4">Careers at <b>Your Jungle Book</b></h1>
+            <h3 class="mb-2">{{job.title}}</h3>
+            <p class="lead mt-0">{{job.location}}</p>
+            <h4>Responsibilities</h4>
+            <p>{{job.responsibilities}}</p>
+            <h4>Requirements</h4>
+            <p>{{job.requirements}}</p>
+            <h4>Salary</h4>
+            <p>{{job.salary}} {{job.currency}}</p>
+        </div>
+        {% include 'footer.html' %}
+    </body>
+</html>
