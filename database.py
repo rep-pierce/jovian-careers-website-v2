@@ -19,11 +19,3 @@ engine = create_engine(
         }
     }
     )
-
-with engine.connect() as conn:
-    result = conn.execute(text("select * from jobs"))
-    result_dicts = []
-    for row in result.all():
-        result_dicts.append(row._asdict())
-
-    print(result_dicts)

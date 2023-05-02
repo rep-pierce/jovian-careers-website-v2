@@ -1,38 +1,49 @@
 from flask import Flask, render_template, jsonify
+from database import engine, text
 
 app = Flask(__name__)
 
-JOBS = [
-    {
-        'id': 1,
-        'title': 'Data Analyst',
-        'location': 'Bengaluru, India',
-        'salary': 'USD 70,000'
-    },
-    {
-        'id': 2,
-        'title': 'Front-end Engineer',
-        'location': 'Pleasant Grove, UT',
-        'salary': 'USD 75,000'
-    },
-    {
-        'id': 3,
-        'title': 'Back-end Engineer',
-        'location': 'Phoenix, AZ',
-        'salary': 'USD 80,000'
-    },
-    {
-        'id': 4,
-        'title': 'Full-stack Engineer',
-        'location': 'Portland, OR',
-        'salary': 'USD 85,000'
-    }
-]
+# JOBS = [
+#     {
+#         'id': 1,
+#         'title': 'Data Analyst',
+#         'location': 'Bengaluru, India',
+#         'salary': 'USD 70,000'
+#     },
+#     {
+#         'id': 2,
+#         'title': 'Front-end Engineer',
+#         'location': 'Pleasant Grove, UT',
+#         'salary': 'USD 75,000'
+#     },
+#     {
+#         'id': 3,
+#         'title': 'Back-end Engineer',
+#         'location': 'Phoenix, AZ',
+#         'salary': 'USD 80,000'
+#     },
+#     {
+#         'id': 4,
+#         'title': 'Full-stack Engineer',
+#         'location': 'Portland, OR',
+#         'salary': 'USD 85,000'
+#     }
+# ]
+
+def load_jobs_from_db():
+    with engine.connect() as conn:
+        result = conn.execute(text("select * from jobs"))
+        jobs = []
+        for row in result.all():
+            jobs.append(row._asdict())
+
+        return jobs
 
 @app.route("/")
 def hello_world():
+    jobs = load_jobs_from_db()
     return render_template('home.html', 
-                           jobs=JOBS)
+                           jobs=jobs)
 
 @app.route("/api/jobs")
 def list_jobs():
